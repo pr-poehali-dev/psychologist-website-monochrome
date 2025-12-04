@@ -96,9 +96,18 @@
   }
 }
 
-@layer utilities {
+@layer components {
   .story-link {
-    @apply relative inline-block after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-accent after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left;
+    @apply relative inline-block;
+  }
+
+  .story-link::after {
+    content: "";
+    @apply absolute w-full scale-x-0 h-0.5 bottom-0 left-0 bg-accent origin-bottom-right transition-transform duration-300;
+  }
+
+  .story-link:hover::after {
+    @apply scale-x-100 origin-bottom-left;
   }
 
   .hover-scale {
